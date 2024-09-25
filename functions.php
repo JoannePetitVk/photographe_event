@@ -40,10 +40,6 @@ function photographe_event_scripts()
 }
 add_action('wp_enqueue_scripts', 'photographe_event_scripts');
 
-
-
-
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *

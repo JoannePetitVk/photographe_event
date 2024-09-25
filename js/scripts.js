@@ -32,11 +32,9 @@ document.querySelector('form').addEventListener('submit', function (event) {
     console.log("Form submitted, closing modal");
     modal.classList.remove('modal-show');
     modal.classList.add('modal-hide');
-    // Optionnel : Ajoute ici la logique pour envoyer le formulaire
 });
+
 
 document.querySelector('a[aria-current="page"]').addEventListener('click', function (event) {
-    event.preventDefault(); // Empêche le clic de rediriger
+    event.preventDefault(); // Empêche le clic de rediriger, afin que ce ne soit pas un apparition brève
 });
-
-
