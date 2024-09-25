@@ -1,0 +1,249 @@
+/*!
+Theme Name: photographe_event
+Theme URI: http://photographe-nathalie-mota.fr
+Author: Joanne vk
+Description: Theme personnalisé Nathaie Mota
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+Text Domain: photographe_event
+*/
+
+/* Importer la police depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+/* Appliquer la police au corps du texte */
+body {
+    font-family: 'Space Mono', monospace;
+}
+
+  :root {
+    --red: #e00000; /* var(--red) */
+    --saumon: #fe5858; /* var(--saumon) */
+    --red-light: #ededed; /* var(--red-light) */
+    --black: #000000; /* var(--black) */
+    --blue-dark: #313144; /* var(--blue-dark) */
+    --grey-dark: #c4c4c4; /* var(--grey-dark) */
+    --grey: #d8d8d8; /* var(--grey) */
+    --grey-light: #e5e5e5; /* var(--grey-light) */
+  }
+ /*retirer les titres des pages*/
+  .page .entry-title {
+    display: none;
+}
+
+/* Header */
+/* Positionne le logo et le menu sur la même ligne */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 90px;
+    height: 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajuste les valeurs pour modifier l'apparence de l'ombre */
+}
+
+/* Redimensionne le logo */
+.site-branding img {
+    max-width: 216px; /* Ajuste la taille du logo ici */
+    height: 14px;
+}
+
+/* Supprime les puces dans le menu */
+.main-navigation .menu {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Espacement entre les éléments du menu */
+    margin: 0;
+    padding: 0;
+}
+
+/* Style des liens du menu */
+.main-navigation .menu a {
+    text-decoration: none;
+    color: #000; /* Couleur du texte du menu */
+    font-size: 16px;
+
+}
+
+/* Ajustement du menu pour les petits écrans (responsive) */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+    }
+
+    .main-navigation .menu {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/*Footer*/
+/* Style général pour le footer */
+.site-footer {
+    text-align: center; /* Centre les éléments horizontalement */
+    padding: 20px 0; /* Espace autour du footer */
+}
+
+.site-info {
+    display: flex;
+    justify-content: center; /* Centre les éléments dans l'espace disponible */
+    align-items: center; /* Centre verticalement */
+    height: 40px; /* Hauteur du footer */
+    border-top: 2px solid #000; /* Ajoute un trait au-dessus du footer */
+}
+
+.footer {
+    display: flex; /* Affiche les éléments en ligne */
+    justify-content: space-between; /* Espace entre les éléments */
+    list-style: none; /* Retire les puces des listes */
+    padding: 0;
+    margin: 0;
+}
+
+.footer-container {
+    display: flex; /* Aligne les items en ligne */
+    gap: 20px; /* Espace entre les items */
+}
+
+.item-footer {
+    margin: 0 15px; /* Espace autour des liens */
+}
+
+.item-footer a {
+    text-decoration: none; /* Supprime la sous-ligne des liens */
+    color: #000; /* Couleur du texte */
+    text-transform: uppercase; /* Met les lettres en majuscule */
+}
+
+.item-footer span{
+    text-transform: uppercase; /* Met les lettres en majuscule */
+}
+
+.item-footer a:hover {
+    text-decoration: underline; /* Ajoute une sous-ligne au survol */
+}
+
+/*Modale*/
+.modal-container {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.3s ease, ; 
+}
+
+.modal-show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Conteneur de la modale */
+.modal {
+    position: relative;
+    max-width: 600px; 
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    overflow: auto !important; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 4px solid black;
+}
+
+/* Image d'en-tête */
+.modal-background {
+    height: 130px !important;
+    position: relative;
+    background: url('<?= get_template_directory_uri(); ?>/assets/images/Contact-header.png');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    margin-top: 10%;
+}
+
+.modal-hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal-overlay {
+    position: absolute;
+    width: 100%;
+    height: 115%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+   
+}
+
+.modal-border {
+    overflow: hidden !important;
+    height: 100%;
+  }
+
+/* Conteneur pour le formulaire */
+.modal-form-container {
+    padding: 0px; /* Espace autour du formulaire */
+    height: 100%;
+    overflow: hidden !important;
+}
+
+/* Vous pouvez ajuster la taille du formulaire avec les styles Contact Form 7 */
+.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Espace entre les champs du formulaire */
+    padding: 0% 25%;
+    max-height: 70%;
+    width: 50%;
+}
+
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.modal-container .modal-box .modal-border .wpcf7 p {
+    margin-block-start: 10px;
+    margin-block-end: 0px;
+}
+
+.wpcf7-form input[type="submit"] {
+    background-color: #d8d8d8; /* Couleur du bouton */
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    width: 98%;
+}
+
+.wpcf7-form input[type="submit"]:hover {
+    background-color: #555; /* Couleur au survol */
+}
+
+/*Espace entre le footer et le header de la page a propos*/
+.site-content {
+    padding-bottom: 600px; /* Ajuste la valeur pour augmenter ou réduire l'espace */
+}
+
+.site-footer {
+    margin-top: -50px; /* Ajuste cette valeur en fonction de la hauteur du padding pour éviter le chevauchement */
+}
+
